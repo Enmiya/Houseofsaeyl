@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>ShopEase Admin</title>
+<link rel="stylesheet" href="admin.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script><script src="admin.js" defer></script></head>
+<body><aside class="sidebar"><a class="brand" href="dashboard.html"><b>S.</b> ShopEase</a><p class="muted">WORKSPACE</p>
+<a class="nav active" href="#overview">▦ Overview</a><a class="nav" href="#products">□ Products</a><a class="nav" href="#categories">◫ Categories</a>
+<a class="nav" href="/" target="_blank">↗ View customer store</a><div class="sidebar-note">Single-store mode<br><small>Products managed by the ShopEase admin.</small></div><button id="logoutButton" hidden>Sign out</button></aside>
+<main><header class="topbar"><div><p class="eyebrow">SHOP MANAGEMENT</p><h1>Admin dashboard</h1><p id="dashboardMessage" class="muted">Checking admin access…</p></div><a class="outline" href="/" target="_blank">View customer store ↗</a></header>
+<section id="overview"><div class="section-title"><div><h2>Store overview</h2><p class="muted">Live figures from Supabase.</p></div><button id="refreshButton" class="secondary">↻ Refresh</button></div>
+<div class="stats"><article><span>Total products</span><strong id="productsCount">—</strong><small>All inventory</small></article><article><span>Published</span><strong id="approvedCount">—</strong><small>Visible to customers</small></article><article><span>Pending review</span><strong id="pendingCount">—</strong><small>Not published yet</small></article><article><span>Low stock</span><strong id="lowStockCount">—</strong><small>Stock ≤ 5</small></article></div>
+<div class="quick"><div><h3>Manage your catalogue</h3><p class="muted">Add products or review unpublished items.</p></div><button id="addProductQuick">＋ Add product</button></div></section>
+<section id="products"><div class="section-title"><div><h2>Product management</h2><p class="muted">Add, update, publish or remove store products.</p></div><button id="addProductButton">＋ Add product</button></div>
+<div class="panel"><div class="toolbar"><input id="searchInput" type="search" placeholder="Search product name…"><select id="statusFilter"><option value="all">All statuses</option><option value="approved">Published</option><option value="pending">Pending</option><option value="rejected">Rejected</option></select><select id="stockFilter"><option value="all">All stock</option><option value="low">Low stock (≤ 5)</option><option value="out">Out of stock</option></select></div><p id="pageMessage" class="message" role="status"></p>
+<div class="table-wrap"><table><thead><tr><th>Product</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th></tr></thead><tbody id="productsBody"><tr><td colspan="5">Loading products…</td></tr></tbody></table></div><div class="table-footer"><span id="productResults">Loading…</span><span>Changes save to Supabase</span></div></div></section>
+<section id="categories"><div class="section-title"><div><h2>Categories</h2><p class="muted">Categories available for product assignment.</p></div></div><div class="panel"><div id="categoriesList" class="categories">Loading categories…</div><p class="helper">Category creation is not enabled here because category write permissions have not been verified.</p></div></section>
+<footer>ShopEase Admin · Single-store control panel · Supabase connected</footer></main>
+<dialog id="productDialog"><form id="productForm"><div class="dialog-head"><h2 id="dialogTitle">Add product</h2><button id="closeDialog" class="close" type="button">×</button></div><input id="productId" type="hidden">
+<label>Product name<input id="productName" required maxlength="150"></label><label>Description<textarea id="productDescription" rows="3"></textarea></label>
+<div class="form-row"><label>Price (₹)<input id="productPrice" type="number" min=".01" step=".01" required></label><label>Stock quantity<input id="productStock" type="number" min="0" step="1" value="0" required></label></div>
+<label>Category<select id="productCategory"><option value="">No category</option></select></label><label>Image URL (optional)<input id="productImage" type="url" placeholder="https://…"></label>
+<label>Visibility<select id="productStatus"><option value="approved">Published — visible to customers</option><option value="pending">Pending</option><option value="rejected">Rejected</option></select></label><p id="formMessage" class="message" role="status"></p>
+<div class="dialog-actions"><button id="cancelDialog" class="secondary" type="button">Cancel</button><button id="saveProductButton" type="submit">Save product</button></div></form></dialog></body></html>

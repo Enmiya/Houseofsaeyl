@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>House of Saeyl | Admin</title>
+
+  <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+  <!-- LOGIN VIEW -->
+  <main id="loginView" class="login-shell">
+
+    <section class="login-card">
+
+      <div class="brand-mark">HOUSE OF SAEYL</div>
+
+      <p class="eyebrow">PRIVATE ADMIN PORTAL</p>
+
+      <h1>Welcome back</h1>
+
+      <p class="muted">
+        Sign in to manage your product catalogue.
+      </p>
+
+      <form id="loginForm">
+
+        <label for="email">Email address</label>
+
+        <input
+          id="email"
+          type="email"
+          placeholder="admin@example.com"
+          autocomplete="username"
+          required
+        >
+
+        <label for="password">Password</label>
+
+        <input
+          id="password"
+          type="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          required
+        >
+
+        <p id="loginError" class="error" aria-live="polite"></p>
+
+        <button class="button primary full" type="submit">
+          Sign in
+        </button>
+
+      </form>
+
+      <p class="login-note">
+        Private access for authorised staff only.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <!-- ADMIN APPLICATION -->
+  <main id="appView" class="app-shell hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="brand-mark">
+        HOUSE OF SAEYL
+      </div>
+
+      <p class="sidebar-label">
+        MANAGEMENT
+      </p>
+
+      <nav class="sidebar-nav">
+
+        <button
+          class="nav-item active"
+          data-page="home"
+          id="homeNav"
+        >
+          Home
+        </button>
+
+        <button
+          class="nav-item"
+          data-page="products"
+          id="productsNav"
+        >
+          Products
+        </button>
+
+      </nav>
+
+      <div class="sidebar-bottom">
+
+        <button
+          id="logoutBtn"
+          class="nav-item"
+        >
+          Sign out
+        </button>
+
+      </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <section class="main-area">
+
+      <!-- TOP BAR -->
+      <header class="topbar">
+
+        <span id="breadcrumb">
+          Admin / Home
+        </span>
+
+        <span class="user-chip">
+          Admin
+        </span>
+
+      </header>
+
+
+      <!-- HOME PAGE -->
+      <section id="homePage" class="page">
+
+        <div class="page-heading">
+
+          <div>
+
+            <p class="eyebrow">
+              OVERVIEW
+            </p>
+
+            <h1>Home</h1>
+
+            <p class="muted">
+              View all products currently available in EmDash.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="product-panel">
+
+          <div class="panel-head">
+
+            <h2>Product catalogue</h2>
+
+            <span id="homeProductCount" class="count">
+              0 products
+            </span>
+
+          </div>
+
+
+          <div id="homeProductList" class="home-product-list">
+
+          </div>
+
+
+          <div
+            id="homeEmptyState"
+            class="empty hidden"
+          >
+            No published products found.
+          </div>
+
+
+          <div
+            id="homeLoading"
+            class="empty hidden"
+          >
+            Loading products...
+          </div>
+
+
+          <div
+            id="homeError"
+            class="error hidden"
+          >
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- PRODUCTS PAGE -->
+      <section id="productsPage" class="page hidden">
+
+        <div class="page-heading">
+
+          <div>
+
+            <p class="eyebrow">
+              CATALOGUE
+            </p>
+
+            <h1>Products</h1>
+
+            <p class="muted">
+              Add and manage products for your website.
+            </p>
+
+          </div>
+
+          <button
+            id="addProductBtn"
+            class="button primary"
+          >
+            + Add product
+          </button>
+
+        </div>
+
+
+        <div class="product-panel">
+
+          <div class="panel-head">
+
+            <h2>All products</h2>
+
+            <span
+              id="productCount"
+              class="count"
+            >
+              0 products
+            </span>
+
+          </div>
+
+
+          <div class="product-row product-header">
+
+            <span>PRODUCT</span>
+
+            <span>DESCRIPTION</span>
+
+            <span>ACTION</span>
+
+          </div>
+
+
+          <div id="productList">
+
+          </div>
+
+
+          <div
+            id="emptyState"
+            class="empty hidden"
+          >
+            No products yet. Add your first product.
+          </div>
+
+
+          <div
+            id="productsLoading"
+            class="empty hidden"
+          >
+            Loading products...
+          </div>
+
+
+          <div
+            id="productsError"
+            class="error hidden"
+          >
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ADD / EDIT PRODUCT PAGE -->
+      <section id="formPage" class="page hidden">
+
+        <div class="page-heading">
+
+          <div>
+
+            <p class="eyebrow">
+              CATALOGUE
+            </p>
+
+            <h1 id="formTitle">
+              Add product
+            </h1>
+
+            <p class="muted">
+              Enter the product details below.
+            </p>
+
+          </div>
+
+          <button
+            id="backBtn"
+            class="button secondary"
+          >
+            Back to products
+          </button>
+
+        </div>
+
+
+        <!-- PRODUCT FORM -->
+        <form
+          id="productForm"
+          class="product-form"
+        >
+
+          <div class="form-grid">
+
+
+            <!-- PRODUCT NAME -->
+            <div class="field full-width">
+
+              <label for="productName">
+                Product name
+              </label>
+
+              <input
+                id="productName"
+                type="text"
+                required
+                placeholder="e.g. Copper Water Bottle"
+              >
+
+            </div>
+
+
+            <!-- PRODUCT IMAGE -->
+            <div class="field full-width">
+
+              <label for="productImage">
+                Product image
+              </label>
+
+              <input
+                id="productImage"
+                type="file"
+                accept="image/*"
+                required
+              >
+
+              <p class="helper">
+                Upload a product image from your computer.
+              </p>
+
+              <div
+                id="imagePreviewContainer"
+                class="image-preview-container hidden"
+              >
+
+                <img
+                  id="imagePreview"
+                  src=""
+                  alt="Product image preview"
+                >
+
+                <button
+                  type="button"
+                  id="removeImageBtn"
+                  class="button secondary"
+                >
+                  Remove image
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- PRODUCT DESCRIPTION -->
+            <div class="field full-width">
+
+              <label for="productDescription">
+                Product description
+              </label>
+
+              <textarea
+                id="productDescription"
+                rows="5"
+                required
+                placeholder="Write a product description..."
+              ></textarea>
+
+            </div>
+
+
+          </div>
+
+
+          <!-- FORM ACTIONS -->
+          <div class="form-actions">
+
+            <button
+              type="button"
+              id="cancelBtn"
+              class="button secondary"
+            >
+              Cancel
+            </button>
+
+            <button
+              type="submit"
+              class="button primary"
+              id="saveProductBtn"
+            >
+              Save product
+            </button>
+
+          </div>
+
+
+          <p
+            id="formMessage"
+            class="helper"
+          >
+          </p>
+
+        </form>
+
+      </section>
+
+
+    </section>
+
+  </main>
+
+
+  <!-- JAVASCRIPT -->
+  <script
+    type="module"
+    src="admin.js"
+  ></script>
+
+</body>
+</html>

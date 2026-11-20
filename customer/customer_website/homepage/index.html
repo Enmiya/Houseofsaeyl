@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="House of Saeyl — thoughtfully presented objects for everyday living.">
+  <title>House of Saeyl — Objects with Stories</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="announcement">A CURATED HOUSE OF OBJECTS</div>
+  <header class="site-header" id="siteHeader">
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span><span></span></button>
+    <a class="wordmark" href="#home">HOUSE <i>OF</i> SAEYL</a>
+    <nav class="desktop-nav"><a href="#object">THE OBJECT</a><a href="#story">OUR THOUGHT</a><a href="#contact">CONTACT</a></nav>
+    <a class="header-cta" href="#object">EXPLORE <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-showreel" aria-label="Cinematic traditional craft background">
+        <video class="hero-background-video" autoplay muted loop playsinline preload="auto" poster="assets/images/copper-vessels.jpg">
+          <source src="assets/video/heritage-showreel.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-grain"></div>
+      <div class="hero-copy">
+        <p class="eyebrow hero-eyebrow">A HOUSE OF OBJECTS & STORIES</p>
+        <h1><span>Objects that</span><br><em>hold a little of us.</em></h1>
+        <p class="hero-description">Thoughtfully chosen objects for everyday living.<br>Every object carries a story worth keeping.</p>
+        <a class="hero-button" href="#object">DISCOVER THE OBJECT <span>↘</span></a>
+      </div>
+      <div class="hero-side-note">MATERIAL · MEMORY · MEANING</div>
+      <div class="hero-bottom"><span>HOUSE OF SAEYL</span><span>SCROLL TO EXPLORE ↓</span></div>
+      <div class="hero-progress"><span></span></div>
+    </section>
+
+    <section class="intro section-pad" id="story">
+      <p class="eyebrow reveal">A THOUGHT THAT STAYS</p>
+      <h2 class="intro-heading reveal">Some things are not simply used.<br><em>They are remembered.</em></h2>
+      <p class="intro-copy reveal">A familiar form. A material shaped by time. An object that quietly becomes part of everyday life. House of Saeyl brings these stories into the present.</p>
+      <div class="intro-mark reveal">SAEYL <span>—</span> A WAY OF KEEPING</div>
+    </section>
+
+
+    <section class="object-section section-pad" id="object">
+  <div class="object-heading reveal">
+    <div>
+      <p class="eyebrow">THE HOUSE EDIT</p>
+      <h2>One object.<br><em>A thousand memories.</em></h2>
+    </div>
+
+    <p class="object-index" id="productCounter">01 <span>/</span> 01</p>
+  </div>
+
+  <article class="product-card reveal" id="dynamicProductCard">
+    <div class="product-photo">
+      <img
+        id="productImage"
+        src="assets/images/copper-vessels.jpg"
+        alt="House of Saeyl product"
+      >
+
+      <span class="photo-caption" id="productCaption">
+        MATERIAL STUDY
+      </span>
+
+      <span class="product-new-badge" id="productNewBadge" hidden>
+        NEW
+      </span>
+    </div>
+
+    <div class="product-details">
+      <p class="eyebrow">A STORY IN MATERIAL</p>
+
+      <h3 id="productName">Copper Vessels</h3>
+
+      <p class="product-description" id="productDescription">
+        A glimpse of familiar forms and enduring materials.
+        Objects that connect the everyday with the stories
+        we carry forward.
+      </p>
+
+      <a
+        class="whatsapp-link"
+        id="productWhatsapp"
+        href="#"
+        target="_blank"
+        rel="noreferrer"
+      >
+        ENQUIRE ON WHATSAPP <span>↗</span>
+      </a>
+
+      <p class="demo-label" id="productStatus"></p>
+
+      <div class="product-navigation">
+        <button
+          type="button"
+          id="previousProduct"
+          aria-label="Previous product"
+        >
+          ←
+        </button>
+
+        <button
+          type="button"
+          id="nextProduct"
+          aria-label="Next product"
+        >
+          →
+        </button>
+      </div>
+    </div>
+  </article>
+</section>
+
+    <section class="story-band">
+      <div class="story-band-inner">
+        <p class="eyebrow light reveal">THE HOUSE PHILOSOPHY</p>
+        <h2 class="reveal">The object came later.<br><em>The thought came first.</em></h2>
+        <p class="reveal">We look beyond how an object appears. We look at what it holds — a material, a memory, a way of life. That is where every story begins.</p>
+        <a class="story-link reveal" href="#contact">CONNECT WITH THE HOUSE <span>↗</span></a>
+      </div>
+      <div class="story-decoration" aria-hidden="true">SAEYL</div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-top">
+      <div><a class="footer-logo" href="#home">HOUSE <i>OF</i> SAEYL</a><p>Objects with stories.<br>Made to be kept.</p></div>
+      <div class="footer-nav"><p class="eyebrow light">EXPLORE</p><a href="#object">The Object</a><a href="#story">Our Thought</a></div>
+      <div class="footer-nav"><p class="eyebrow light">CONNECT</p><a href="https://www.instagram.com/thehouseofsaeyl/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://wa.me/?text=Hello%20House%20of%20Saeyl" target="_blank" rel="noreferrer">WhatsApp Enquiry ↗</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 HOUSE OF SAEYL</span><span>ALL RIGHTS RESERVED</span></div>
+  </footer>
+
+  <div class="mobile-menu" id="mobileMenu"><button class="menu-close" id="menuClose" aria-label="Close menu">×</button><a href="#object">THE OBJECT</a><a href="#story">OUR THOUGHT</a><a href="#contact">CONTACT</a></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

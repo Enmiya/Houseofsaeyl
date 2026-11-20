@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>House of Saeyl | Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <main id="loginView" class="login-shell">
+    <section class="login-card">
+      <div class="brand-mark">HOUSE OF SAEYL</div>
+      <p class="eyebrow">PRIVATE ADMIN PORTAL</p>
+      <h1>Welcome back</h1>
+      <p class="muted">Sign in to manage your product catalogue.</p>
+      <form id="loginForm">
+        <label for="email">Email address</label>
+        <input id="email" type="email" placeholder="admin@example.com" autocomplete="username" required>
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Enter your password" autocomplete="current-password" required>
+        <p id="loginError" class="error" aria-live="polite"></p>
+        <button class="button primary full" type="submit">Sign in</button>
+      </form>
+      <p class="login-note">Private access for authorised staff only.</p>
+    </section>
+  </main>
+
+  <main id="appView" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="brand-mark">HOUSE OF SAEYL</div>
+      <p class="sidebar-label">MANAGEMENT</p>
+      <button class="nav-item active" data-page="products">Products</button>
+      <div class="sidebar-bottom"><button id="logoutBtn" class="nav-item">Sign out</button></div>
+    </aside>
+    <section class="main-area">
+      <header class="topbar"><span>Admin / Products</span><span class="user-chip">Admin</span></header>
+      <section id="productsPage" class="page">
+        <div class="page-heading"><div><p class="eyebrow">CATALOGUE</p><h1>Products</h1><p class="muted">Add and manage the products shown on your website.</p></div><button id="addProductBtn" class="button primary">+ Add product</button></div>
+        <div class="product-panel">
+          <div class="panel-head"><h2>All products</h2><span id="productCount" class="count">1 product</span></div>
+          <div class="product-row product-header"><span>PRODUCT</span><span>PRICE</span><span>STATUS</span><span>ACTION</span></div>
+          <div id="productList"></div>
+          <div id="emptyState" class="empty hidden">No products yet. Add your first product.</div>
+        </div>
+      </section>
+      <section id="formPage" class="page hidden">
+        <div class="page-heading"><div><p class="eyebrow">CATALOGUE</p><h1 id="formTitle">Add product</h1><p class="muted">Enter the basic product details.</p></div><button id="backBtn" class="button secondary">Back to products</button></div>
+        <form id="productForm" class="product-form">
+          <div class="form-grid">
+            <div class="field"><label for="productName">Product name</label><input id="productName" required placeholder="e.g. Copper Vessel"></div>
+            <div class="field"><label for="productPrice">Price (₹)</label><input id="productPrice" type="number" min="0" step="1" required placeholder="e.g. 1499"></div>
+            <div class="field"><label for="productStatus">Availability</label><select id="productStatus"><option>In stock</option><option>Made to order</option><option>Out of stock</option></select></div>
+            <div class="field"><label for="productImage">Image URL (optional for this UI demo)</label><input id="productImage" type="url" placeholder="https://..."></div>
+            <div class="field full-width"><label for="productDescription">Description</label><textarea id="productDescription" rows="4" placeholder="Write a short product description"></textarea></div>
+          </div>
+          <div class="form-actions"><button type="button" id="cancelBtn" class="button secondary">Cancel</button><button type="submit" class="button primary">Save product</button></div>
+          <p class="helper">This first version is a UI prototype. Product data is saved only in this browser until EmDash is connected.</p>
+        </form>
+      </section>
+    </section>
+  </main>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
